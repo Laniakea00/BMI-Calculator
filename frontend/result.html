@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Result</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="result">Your BMI result will appear here</h1>
+    <a href="/">Back to calculator</a>
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const bmi = urlParams.get('bmi');
+    const category = urlParams.get('category');
+    const color = urlParams.get('color');
+
+    if (bmi && category && color) {
+      const resultElement = document.getElementById('result');
+      resultElement.textContent = `Your BMI is ${bmi} (${category})`;
+      resultElement.style.color = color;
+    }
+  </script>
+</body>
+</html>
